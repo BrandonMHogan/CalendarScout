@@ -1,0 +1,105 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.1.4-2'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0-beta2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext{
+
+    buildToolsVersion = '26.0.0'
+    compileSdkVersion = 26
+    targetSdkVersion = 26
+    minSdkVersion = 17
+
+    supportLibVersion = '26.0.1'
+    playServicesVersion = '11.0.1'
+    constraintLayoutVersion = '1.0.2'
+    archCompVersion = '1.0.0-alpha5'
+    rxJavaVersion = '2.0.1'
+    rxKotlinVersion = '2.0.3'
+    timberVersion = '4.5.1'
+    daggerVersion = '2.+'
+    retrofitVersion = '2.3.0'
+    okHttpVersion = '3.8.0'
+    gsonVersion = '2.8.0'
+    leakCanaryVersion = '1.5.1'
+    htmlTextViewVersion = '3.4'
+
+    // supportLib
+    supportLib = "com.android.support:support-v4:$supportLibVersion"
+    supportLibAppCompat = "com.android.support:appcompat-v7:$supportLibVersion"
+    supportLibDesign = "com.android.support:design:$supportLibVersion"
+    supportLibRecyclerview = "com.android.support:recyclerview-v7:$supportLibVersion"
+    supportLibCardview = "com.android.support:cardview-v7:$supportLibVersion"
+
+    // constraint layout
+    constraintLayout = "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    // google play services
+    playServiceBase = "com.google.android.gms:play-services-base:$playServicesVersion"
+    playServiceAnalytics = "com.google.android.gms:play-services-analytics:$playServicesVersion"
+    playServiceMaps = "com.google.android.gms:play-services-maps:$playServicesVersion"
+    playServicePlaces = "com.google.android.gms:play-services-places:$playServicesVersion"
+    playServiceGCM = "com.google.android.gms:play-services-gcm:$playServicesVersion"
+    playServiceAds = "com.google.android.gms:play-services-ads:$playServicesVersion"
+
+    // architecture components
+    archCompLifecycle = "android.arch.lifecycle:runtime:$archCompVersion"
+    archCompLifecycleExt = "android.arch.lifecycle:extensions:$archCompVersion"
+    archCompLifecycleCompiler = "android.arch.lifecycle:compiler:$archCompVersion"
+
+    archCompRoom = "android.arch.persistence.room:runtime:$archCompVersion"
+    archRoomRxJava = "android.arch.persistence.room:rxjava2:$archCompVersion"
+    archCompRoomCompiler = "android.arch.persistence.room:compiler:$archCompVersion"
+
+    // rx
+    rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
+    rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+
+    // timber
+    timber = "com.jakewharton.timber:timber:$timberVersion"
+
+    // dagger
+    dagger = "com.google.dagger:dagger-android:$daggerVersion"
+    daggerSupport = "com.google.dagger:dagger-android-support:$daggerVersion" // if you use the support libraries
+    daggerAnnotation = "com.google.dagger:dagger-android-processor:$daggerVersion" //for annotationProcessor
+    daggerApt = "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // net
+    retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    okHttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    gson = "com.google.code.gson:gson:$gsonVersion"
+    rxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    gsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // leak canary
+    leakCanary = "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    leakCanaryNoOp = "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+
+
+    buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
